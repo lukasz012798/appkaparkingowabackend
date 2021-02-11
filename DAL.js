@@ -26,7 +26,7 @@ const postParking = (callback, body) => {
     }
     callback(
       {
-        status: "Created",
+        status: `Created: ${body.name}`,
       },
       201
     );
