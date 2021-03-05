@@ -14,9 +14,6 @@ const noteSchema = new Schema({
   type: {
     type: Number,
   },
-  exit: {
-    type: Number,
-  },
   heading: {
     type: String,
   },

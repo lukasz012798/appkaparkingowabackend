@@ -15,6 +15,7 @@ router.post("/", (req, res) => {
 
 // dodawanie nowej notatki
 router.post("/note", (req, res) => {
+  console.log(req.body);
   DAL.postNote((data, status) => res.status(status).json(data), req.body);
 });
 
