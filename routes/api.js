@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const DAL = require("./../DAL");
+const controller = require("./../controller");
 
 // pobieranie wszystkich obiektów
 router.get("/", (req, res) => {
@@ -11,6 +12,18 @@ router.get("/", (req, res) => {
 router.post("/", (req, res) => {
   DAL.postParking((data, status) => res.status(status).json(data), req.body);
 });
+
+// dodawanie nowej notatki
+router.post("/note", (req, res) => {
+  DAL.postNote((data, status) => res.status(status).json(data), req.body);
+});
+
+// router.post("/", (req, res) => {
+//   controller.postParking(
+//     (data, status) => res.status(status).json(data),
+//     req.body
+//   );
+// });
 
 // aktualizacja obiektu na podstawie podanego id
 router.put("/", (req, res) => {

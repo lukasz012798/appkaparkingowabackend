@@ -1,4 +1,5 @@
 const Parking = require("./models/parking");
+const Note = require("./models/note");
 
 const getParking = (callback) => {
   Parking.find({}).exec((err, data) => {
@@ -15,6 +16,29 @@ const postParking = (callback, body) => {
   const parkingData = new Parking(body);
 
   parkingData.save((err) => {
+    if (err) {
+      callback(
+        {
+          status: "Internal Server Error",
+        },
+        500
+      );
+      return;
+    }
+    callback(
+      {
+        status: `Created: ${body.name}`,
+      },
+      201
+    );
+  });
+};
+
+const postNote = (callback, body) => {
+  console.log(body);
+  const noteData = new Note(body);
+
+  noteData.save((err) => {
     if (err) {
       callback(
         {
@@ -73,5 +97,6 @@ const deleteParking = (callback, id) => {
 
 module.exports.getParking = getParking;
 module.exports.postParking = postParking;
+module.exports.postNote = postNote;
 module.exports.putParking = putParking;
 module.exports.deleteParking = deleteParking;
