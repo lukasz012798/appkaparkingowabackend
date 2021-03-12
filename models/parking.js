@@ -18,7 +18,7 @@ const parkingSchema = new Schema({
     type: Number,
   },
   side: {
-    type: String,
+    type: Number,
   },
 });
 
