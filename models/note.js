@@ -15,7 +15,7 @@ const noteSchema = new Schema({
     type: Number,
   },
   heading: {
-    type: String,
+    type: Number,
   },
   note: {
     type: String,
