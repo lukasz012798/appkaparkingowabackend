@@ -79,8 +79,9 @@ const putParking = (callback, body) => {
     (err, doc) => {
       if (err) {
         callback("error", 500);
+      } else {
+        callback("updated", 201);
       }
-      callback("updated", 201);
     }
   );
 };

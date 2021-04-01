@@ -10,6 +10,7 @@ var bodyParser = require("body-parser");
 mongoose.connect(config.dbURL, {
   useUnifiedTopology: true,
   useNewUrlParser: true,
+  useFindAndModify: false,
 });
 
 var db = mongoose.connection;
